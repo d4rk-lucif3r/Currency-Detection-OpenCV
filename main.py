@@ -1,4 +1,4 @@
-from Helpers.Detector import Detector
+from Detection.Detector import Detector
 
 detect_obj = Detector()
 detect_obj.start()

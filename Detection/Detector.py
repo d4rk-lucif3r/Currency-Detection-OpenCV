@@ -7,8 +7,8 @@ import cv2
 from imutils.video import FPS
 
 
-from Helpers.config import *
-from Helpers.Stream import Stream
+from Detection.config import *
+from Detection.Stream import Stream
 
 
 class Detector:
