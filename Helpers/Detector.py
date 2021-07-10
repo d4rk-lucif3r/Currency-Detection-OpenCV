@@ -37,8 +37,8 @@ class Detector:
                             multi_probe_level=1)
         search_params = dict(checks=50)
         self.matcher = cv2.FlannBasedMatcher(index_params, search_params)
-        self.videoCapture = Stream(src=0).start()
-        self.fps = FPS().start()
+        
+        
         # self.matcher = cv2.DescriptorMatcher_create(
         #     cv2.DescriptorMatcher_BRUTEFORCE_HAMMING)
 
@@ -50,7 +50,8 @@ class Detector:
         self.getSampleData()
         end = time.time()
         print('Done sampling :', end-start)
-        self.frame = self.videoCapture.read()
+        self.videoCapture = Stream(src=0).start()
+        self.fps = FPS().start()
 
     def getSampleData(self):
         """[Samples the images in dataset and stores features and description of each image in a dictionary with key as the currency value]
@@ -165,23 +166,21 @@ class Detector:
             self.homographyData = (self.queryImageShape,
                                    self.queryImageKeypoints, self.kp, self.matches)
             self.matchingSummary = self.matchesSummary
+            
         except Exception as error:
             pass
 
-    def __processFrame(self):
-        """[Processes Frame image from stream by converting it to grayScale and the calls Currency Guesser]
-        """
-        self.colorFrame = self.frame
-        self.frame = cv2.cvtColor(self.frame, cv2.COLOR_BGR2GRAY)
-        self.__guessCurrency()
 
     def detect(self):
         """[Detects the currency in the Video Stream]
         """
-        self.__processFrame()
-        cv2.imshow("frame", self.frame)
-        key = cv2.waitKey(1)
+        self.frame = self.videoCapture.read()
+        self.frame = cv2.cvtColor(self.frame, cv2.COLOR_BGR2GRAY)
+        self.__guessCurrency()
+        if DEBUG:
+            cv2.imshow("frame", self.frame)
         self.fps.update()
+        
 
     def stop(self):
         """[Exits the Currency Detector]
