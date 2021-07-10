@@ -2,7 +2,7 @@
 
 
 <p align="center">
-  <a target="_blank"><img src="https://www.meshcookie.com/wp-content/uploads/2015/03/opencv_logo-1.png" /></a>&nbsp;&nbsp;&nbsp;&nbsp;
+  <a target="_blank"><img src="https://3.bp.blogspot.com/-yvrV6MUueGg/ToICp0YIDPI/AAAAAAAAADg/SYKg4dWpyC43AAfrDwBTR0VYmYT0QshEgCPcBGAYYCw/s1600/OpenCV_Logo.png" /></a>&nbsp;&nbsp;&nbsp;&nbsp;
 </p>
 
 ---
